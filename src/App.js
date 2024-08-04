@@ -5,9 +5,10 @@ import ProductList from './features/product-list/ProductList';
 function App() {
   return (
   <div className="App" >
-    <Counter>
-       <ProductList></ProductList>
-    </Counter>
+  <ProductList >
+    
+  </ProductList>
+    
   </div>
   );
 }
