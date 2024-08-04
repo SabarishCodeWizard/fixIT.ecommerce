@@ -28,14 +28,8 @@ const sortOptions = [
   { name: 'Newest', href: '#', current: false },
   { name: 'Price: Low to High', href: '#', current: false },
   { name: 'Price: High to Low', href: '#', current: false },
-]
-const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
-]
+];
+
 const filters = [
   {
     id: 'color',
@@ -72,7 +66,7 @@ const filters = [
       { value: '40l', label: '40L', checked: true },
     ],
   },
-]
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -150,16 +144,7 @@ export default function ProductList() {
 
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
-                    <h3 className="sr-only">Categories</h3>
-                    <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
-                            {category.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
+                  
 
                     {filters.map((section) => (
                       <Disclosure key={section.id} as="div" className="border-t border-gray-200 px-4 py-6">
@@ -262,14 +247,7 @@ export default function ProductList() {
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                   {/* Filters */}
                   <form className="hidden lg:block">
-                    <h3 className="sr-only">Categories</h3>
-                    <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-                      {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href}>{category.name}</a>
-                        </li>
-                      ))}
-                    </ul>
+
 
                     {filters.map((section) => (
                       <Disclosure key={section.id} as="div" className="border-b border-gray-200 py-6">
