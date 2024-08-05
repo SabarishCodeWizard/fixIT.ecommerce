@@ -15,16 +15,15 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
+    element:  <Home></Home>  ,
   },
   {
-    path: "about",
-    element: <div>About</div>,
+    path: "/login",
+    element: <LoginPage></LoginPage>,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage></SignupPage>,
   },
 ]);
 
@@ -32,9 +31,7 @@ const router = createBrowserRouter([
 function App() {
   return (
   <div className="App" >
-     <SignupPage>
-
-     </SignupPage>
+      <RouterProvider router={router} />
     
   </div>
   );
