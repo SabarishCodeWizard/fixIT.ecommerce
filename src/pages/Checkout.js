@@ -5,7 +5,7 @@ import {
     increment,
     incrementAsync,
     selectCount,
-} from './cartSlice';
+} from '../features/cart/cartSlice';
 
 
 const products = [
@@ -37,10 +37,11 @@ const products = [
 
 function Checkout() {
     return (
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
             <div className="lg:col-span-3">
 
-                <form>
+                <form className="bg-white px-5">
 
                     <div className="space-y-12">
 
@@ -381,6 +382,7 @@ function Checkout() {
 
 
             </div>
+        </div>
         </div>
 
     );
