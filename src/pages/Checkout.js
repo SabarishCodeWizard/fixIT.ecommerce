@@ -204,23 +204,28 @@ function Checkout() {
                                 <p className="mt-1 text-sm leading-6 text-gray-600">
                                     Choose from existing addresses
                                 </p>
-                                <ul role="list" className="divide-y divide-gray-100">
+                                <ul role="list">
                                     {addresses.map((address) => (
-                                        <li key={address.email} className="flex justify-between gap-x-6 py-5">
+                                        <li key={address.email} className="flex justify-between gap-x-6 py-5 border-solid border-2 border-gray">
                                             <div className="flex min-w-0 gap-x-4">
+                                                <input
+                                                    name="address"
+                                                    type="radio"
+                                                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                                />
                                                 {/* <img alt="" src={person.imageUrl} className="h-12 w-12 flex-none rounded-full bg-gray-50" /> */}
                                                 <div className="min-w-0 flex-auto">
                                                     <p className="text-sm font-semibold leading-6 text-gray-900">{address.name}</p>
                                                     <p className="mt-1 truncate text-xs leading-5 text-gray-500">{address.street}</p>
                                                     <p className="mt-1 truncate text-xs leading-5 text-gray-500">{address.pinCode}</p>
                                                 </div>
-                                               
+
                                             </div>
                                             <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                                                 <p className="text-sm leading-6 text-gray-900"><b>Phone :</b> {address.phone}</p>
                                                 <p className="text-sm leading-6 text-gray-900">{address.city}</p>
-                                                </div>
-                                         
+                                            </div>
+
                                         </li>
                                     ))}
                                 </ul>
