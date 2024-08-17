@@ -1,12 +1,13 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 
 
 import {
-  increment,
-  incrementAsync,
+  
+  fetchAllProductsAsync,
+  selectAllProducts,
   selectCount,
 } from '../productSlice';
 
@@ -117,11 +118,15 @@ function classNames(...classes) {
 
 
 export default function ProductList() {
-  const count = useSelector(selectCount);
+
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const products = useSelector(state=>state.product.products)
+  const products = useSelector(selectAllProducts)
 
+
+  useEffect(()=>{
+    dispatch(fetchAllProductsAsync())
+  },[dispatch])
 
 
   return (
