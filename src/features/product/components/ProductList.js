@@ -305,7 +305,7 @@ export default function ProductList() {
                           {products.map((product) => (
                             <Link to="/product-detail">
                               <div key={product.id} className="group relative border-solid border-2 p-2 border-gray-200">
-                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                                <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                                   <img
                                     alt={product.title}
                                     src={product.thumbnail}
