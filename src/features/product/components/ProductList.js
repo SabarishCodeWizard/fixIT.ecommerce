@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ChevronLeftIcon, ChevronRightIcon,StarIcon } from '@heroicons/react/20/solid'
+import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 
 
@@ -323,12 +323,16 @@ export default function ProductList() {
                                     <p className="mt-1 text-sm text-gray-500">
                                       <StarIcon className='w-6 h-6 inline'></StarIcon>
                                       <span className='align-bottom'>{product.rating}</span>
-                                      </p>
-                                  </div>
-                                  <p className="text-sm block font-medium text-gray-900">${product.price}</p>
-                                  <p className="text-sm block font-medium text-gray-900">
-                                    {/* ${Math.round(product.price*(1-product.discountPercentage/100))} */}
                                     </p>
+                                  </div>
+                                  <div>
+                                  <p className="text-sm block font-medium text-gray-900">
+                                    ₹{Math.round(product.price * (1 - product.discountPercentage / 100))}
+                                    </p>
+                                    <p className="text-sm block line-through font-medium text-gray-400">₹{product.price}</p>
+                                
+                                  </div>
+
                                 </div>
                               </div>
                             </Link>
