@@ -321,12 +321,14 @@ export default function ProductList() {
                                       </a>
                                     </h3>
                                     <p className="mt-1 text-sm text-gray-500">
-                                      <StarIcon className='w-6 h-6 inline'>
-
-                                      </StarIcon>
-                                      {product.rating}</p>
+                                      <StarIcon className='w-6 h-6 inline'></StarIcon>
+                                      <span className='align-bottom'>{product.rating}</span>
+                                      </p>
                                   </div>
-                                  <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                                  <p className="text-sm block font-medium text-gray-900">${product.price}</p>
+                                  <p className="text-sm block font-medium text-gray-900">
+                                    {/* ${Math.round(product.price*(1-product.discountPercentage/100))} */}
+                                    </p>
                                 </div>
                               </div>
                             </Link>
