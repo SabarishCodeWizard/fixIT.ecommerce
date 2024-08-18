@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import {
   
   fetchAllProductsAsync,
-  selectAllProducts,
-  selectCount,
+  selectAllProducts,  
 } from '../productSlice';
 
 
@@ -128,6 +127,7 @@ export default function ProductList() {
     dispatch(fetchAllProductsAsync())
   },[dispatch])
 
+  
 
   return (
     <div>
