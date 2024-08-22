@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 
 import {
-  
+
   fetchAllProductsAsync,
-  selectAllProducts,  
+  selectAllProducts,
 } from '../productSlice';
 
 
@@ -52,25 +52,15 @@ const filters = [
     id: 'category',
     name: 'Category',
     options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
+      { value: 'smartphones', label: 'smartphones', checked: false },
+      { value: 'laptops', label: 'laptops', checked: false },
+      { value: 'fragrances', label: 'fragrances', checked: false },
+      { value: 'skincare', label: 'skincare', checked: false },
+      { value: 'groceries', label: 'groceries', checked: false },
+      { value: 'home-decoration', label: 'home decoration', checked: false }
     ],
-  },
-  {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
+
+  }
 ];
 
 function classNames(...classes) {
@@ -123,11 +113,11 @@ export default function ProductList() {
   const products = useSelector(selectAllProducts)
 
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchAllProductsAsync())
-  },[dispatch])
+  }, [dispatch])
 
-  
+
 
   return (
     <div>
@@ -332,11 +322,11 @@ export default function ProductList() {
                                     </p>
                                   </div>
                                   <div>
-                                  <p className="text-sm block font-medium text-gray-900">
-                                    ₹{Math.round(product.price * (1 - product.discountPercentage / 100))}
+                                    <p className="text-sm block font-medium text-gray-900">
+                                      ₹{Math.round(product.price * (1 - product.discountPercentage / 100))}
                                     </p>
                                     <p className="text-sm block line-through font-medium text-gray-400">₹{product.price}</p>
-                                
+
                                   </div>
 
                                 </div>
