@@ -3,6 +3,7 @@ import AliceCarousel from 'react-alice-carousel'
 import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
 import { Button } from '@headlessui/react'; // Consider using a different Button component if necessary
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import { mens_kurta } from '../../../Data/men_kurta';
 
 const HomeSectionCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0)
@@ -17,7 +18,7 @@ const HomeSectionCarousel = () => {
 
     const syncActiveIndex = ({ item }) => setActiveIndex(item)
 
-    const items = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => <HomeSectionCard />)
+    const items = mens_kurta.slice(0,10).map((item) => <HomeSectionCard  product={item} />)
 
     return (
         <div className='relative px-4 lg:px-8 border'>
@@ -25,7 +26,6 @@ const HomeSectionCarousel = () => {
                 <AliceCarousel
                     items={items}
                     disableButtonsControls
-                    infinite
                     responsive={responsive}
                     disableDotsControls
                     onSlideChange={syncActiveIndex}
