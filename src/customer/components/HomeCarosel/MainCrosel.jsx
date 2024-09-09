@@ -8,7 +8,7 @@ import { mainCarouselData } from './MainCaroselData';
 const MainCrosel = () => {
 
     const items = mainCarouselData.map((item) =>
-        <img className='cursor-pointer'
+        <img className='cursor-pointer -z-10'
             role='presentation'
             src={item.image}
             alt="" />

@@ -142,7 +142,7 @@ export default function Navigation() {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className="bg-white">
+        <div className="bg-white z-50">
             {/* Mobile menu */}
             <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
                 <DialogBackdrop
