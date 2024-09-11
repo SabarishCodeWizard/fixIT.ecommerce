@@ -19,6 +19,7 @@ import { mens_kurta } from '../../../Data/men_kurta'
 import ProductCard from './ProductCard'
 import { filters, singleFilter } from './FilterData'
 import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom'
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 
@@ -35,6 +36,32 @@ function classNames(...classes) {
 
 export default function Product() {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const handleFilter = (value, sectionId) => {
+        const searchParamms = new URLSearchParams(location.search)
+
+        let filterValue = searchParamms.getAll(sectionId)
+
+        if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
+            filterValue = filterValue[0].split(",").filter((item) => item !== value);
+
+
+            if (filterValue.length == 0) {
+                searchParamms.delete(sectionId)
+            }
+        } else {
+            filterValue.push(value)
+        }
+
+        if (filterValue.length > 0) {
+            searchParamms.set(sectionId, filterValue.join(","));
+            const query = searchParamms.toString();
+            navigate({ search: `?${query}` })
+        }
+
+    }
 
     return (
         <div className="bg-white">
@@ -191,6 +218,7 @@ export default function Product() {
                                                     {section.options.map((option, optionIdx) => (
                                                         <div key={option.value} className="flex items-center">
                                                             <input
+                                                            onChange={()=>handleFilter(option.value,section.id)}
                                                                 defaultValue={option.value}
                                                                 defaultChecked={option.checked}
                                                                 id={`filter-${section.id}-${optionIdx}`}
