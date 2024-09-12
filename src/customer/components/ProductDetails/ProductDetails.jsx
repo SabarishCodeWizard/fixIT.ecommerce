@@ -1,9 +1,12 @@
 
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
-import {Radio, RadioGroup } from '@headlessui/react'
+import { Radio, RadioGroup } from '@headlessui/react'
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button'; // Make sure you import Material-UI's Button
+import { Grid } from '@mui/material';
+import ProductReviewCard from './ProductReviewCard';
+
 
 
 
@@ -69,7 +72,7 @@ export default function ProductDetails() {
     const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
     return (
-        <div className="bg-white">
+        <div className="bg-white lg:px-20">
             <div className="pt-6">
                 <nav aria-label="Breadcrumb">
                     <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -253,7 +256,27 @@ export default function ProductDetails() {
 
                 </section>
 
+                <section>
+                    <h1 className="font-semibold text-lg pb-4">Recent Review & Rating</h1>
 
+                    <div className="border p-5">
+                        <Grid container spacing={7}>
+                            <Grid item xs={7}>
+                                <div className="space-y-5">
+                                    {[1,1,1].map((item) => <ProductReviewCard/>)}
+                                </div>
+                            </Grid>
+                            <Grid item xs={5}>
+                                <h1 className='text-xl font-semibold pb-1'>Product Ratings</h1>
+                                <div>
+                                    <Rating value={4.6} precision={.5} readOnly/>
+                                    <p className='opacity-60'>54890 Ratings</p>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </div>
+
+                </section>
 
             </div>
         </div>
